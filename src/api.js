@@ -4,19 +4,10 @@ const API = (function () {
     const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/?key=${API_KEY}`;
     const response = await fetch(url);
     const forecastData = await response.json();
-    const subsetData = {
-      conditions: forecastData.currentConditions.conditions,
-      feelslike: forecastData.currentConditions.feelslike,
-      humidity: forecastData.currentConditions.humidity,
-      temp: forecastData.currentConditions.temp,
-    };
-    console.log(subsetData);
-    // return forecastData;
+    return forecastData;
   };
 
-  return {
-    getForecast,
-  };
+  return { getForecast };
 })();
 
 export { API };
